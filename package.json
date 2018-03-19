@@ -19,5 +19,9 @@
         "lodash": "^4.17.4",
         "popper.js": "^1.12",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "@uirouter/angularjs": "^1.0.15",
+        "angular-route": "^1.6.9"
     }
 }
