@@ -4,7 +4,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h1 class="bright_color">Posts</h1>
-                    <p>     <button class="btn btn-primary btn-xs " ng-click="$ctrl.initPost()">Create</button></p>
+                    <p>     <button class="btn btn-bright btn-xs " ng-click="$ctrl.initPost()">Create</button></p>
                 </div>
                 <div class="panel-body">
 
@@ -79,7 +79,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="$ctrl.addPost()">Submit</button>
+                    <button type="button" class="btn btn-bright" ng-click="$ctrl.addPost()">Submit</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -107,6 +107,13 @@
                         <label for="name">Title</label>
                         <input type="text" name="title" class="form-control" ng-model="$ctrl.edit_post.title">
                     </div>
+
+                    <div class="form-group">
+                        <label for="description">Category</label>
+                        <select ng-options="category.id as category.title for category in $ctrl.categories" ng-model="$ctrl.edit_post.category_id"></select>
+
+                    </div>
+
                     <div class="form-group">
                         <label for="description">Description</label>
                         <textarea name="description" rows="5" class="form-control"
@@ -115,7 +122,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="$ctrl.updatePost()">Submit</button>
+                    <button type="button" class="btn btn-bright" ng-click="$ctrl.updatePost()">Submit</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

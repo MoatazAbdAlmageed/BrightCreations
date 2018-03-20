@@ -22,6 +22,8 @@ angular.module('app').component('posts', {
 
                     ctrl.categories = e.data.categories;
 
+
+
                 });
         };
 
@@ -37,6 +39,10 @@ angular.module('app').component('posts', {
         };
         ctrl.initPost = function () {
 
+            if (ctrl.categories  && ctrl.categories.length) {
+                ctrl.post.category_id =    ctrl.categories[0];
+            }
+
             ctrl.resetForm();
             $("#add_new_post").modal('show');
         };
@@ -47,6 +53,7 @@ angular.module('app').component('posts', {
         ctrl.addPost = function () {
             $http.post('/post', {
                 title: ctrl.post.title,
+
                 description: ctrl.post.description,
                 category_id: ctrl.post.category_id,
             }).then(function success(e) {
