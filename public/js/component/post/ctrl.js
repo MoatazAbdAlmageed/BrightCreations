@@ -14,13 +14,25 @@ angular.module('app').component('posts', {
 
                 });
         };
+
+        ctrl.loadCategories = function () {
+            $http.get('/category')
+                .then(function success(e) {
+                    debugger
+                    ctrl.categories = e.data.categories;
+
+                });
+        };
+
         ctrl.loadPosts();
+        ctrl.loadCategories();
 
         ctrl.errors = [];
 
         ctrl.post = {
             name: '',
-            description: ''
+            description: '',
+            category_id: '',
         };
         ctrl.initPost = function () {
 
@@ -34,7 +46,8 @@ angular.module('app').component('posts', {
         ctrl.addPost = function () {
             $http.post('/post', {
                 title: ctrl.post.title,
-                description: ctrl.post.description
+                description: ctrl.post.description,
+                category_id: ctrl.post.category_id,
             }).then(function success(e) {
                 ctrl.resetForm();
                 ctrl.posts.push(e.data.post);
@@ -60,6 +73,7 @@ angular.module('app').component('posts', {
         ctrl.resetForm = function () {
             ctrl.post.name = '';
             ctrl.post.description = '';
+            ctrl.post.category_id = '';
             ctrl.errors = [];
         };
 
@@ -75,7 +89,8 @@ angular.module('app').component('posts', {
         ctrl.updatePost = function () {
             $http.patch('/post/' + ctrl.edit_post.id, {
                 title: ctrl.edit_post.title,
-                description: ctrl.edit_post.description
+                description: ctrl.edit_post.description,
+                category_id: ctrl.edit_post.category_id
             }).then(function success(e) {
                 ctrl.errors = [];
                 $("#edit_post").modal('hide');

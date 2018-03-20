@@ -9994,6 +9994,14 @@ a.text-dark:focus {
   }
 }
 
+.bright_color {
+  color: #32a59a;
+}
+
+.bright_background {
+  background: #32a59a;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -10488,5 +10496,22 @@ body {
 
 #nav_pages li {
   margin-left: 10px;
+}
+
+#nav_pages li a {
+  color: #32a59a;
+}
+
+#nav_pages li a:hover {
+  text-decoration: none;
+  color: #f6b700;
+}
+
+body {
+  background-color: #fff;
+}
+
+.navbar {
+  border: #fcdd00 1px solid !important;
 }
 

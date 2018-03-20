@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Bright Creations</title>
 
     <!-- Scripts -->
     {{--v1.5.9--}}
@@ -37,7 +37,8 @@
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
             <a class="navbar-brand" ui-sref="home">
-                {{ config('app.name', 'Laravel') }}
+
+                <img src="{{asset('img/BC-logo.jpg')}}" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,8 +49,9 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto" id="nav_pages">
                     <li><a ui-sref="post">Posts</a></li>
-                    <li><a ui-sref="category">Categories</a></li>
                     <li><a ui-sref="comment">Comments</a></li>
+                    <li><a ui-sref="category">Categories</a></li>
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->

@@ -3,6 +3,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
+                    <h1 class="bright_color">Posts</h1>
                     <p>     <button class="btn btn-primary btn-xs " ng-click="$ctrl.initPost()">Create</button></p>
                 </div>
                 <div class="panel-body">
@@ -61,6 +62,13 @@
                         <label for="name">Title</label>
                         <input type="text" name="title" class="form-control" ng-model="$ctrl.post.title">
                     </div>
+
+                    <div class="form-group">
+                        <label for="description">Category</label>
+                        <select ng-options="category.id as category.title for category in $ctrl.categories" ng-model="$ctrl.post.category_id"></select>
+
+                    </div>
+
                     <div class="form-group">
                         <label for="description">Description</label>
                         <textarea name="description" rows="5" class="form-control"

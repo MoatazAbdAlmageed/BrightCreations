@@ -35,6 +35,9 @@ class HomeController extends Controller
 	public function get_counters()
 	{
 		$posts = Post::all();
+
+//		$posts = count(request()->user()->posts);
+
 		$comments = Comment::all();
 		$categories = Category::all();
 		return response()->json([

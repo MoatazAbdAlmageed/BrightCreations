@@ -48,13 +48,14 @@ class PostController extends Controller
 	    $this->validate($request, [
 		    'title'        => 'required|max:255',
 		    'description' => 'required',
+		    'category_id' => 'required',
 	    ]);
 
 	    $post = Post::create([
 		    'title'        => request('title'),
 		    'description' => request('description'),
 		    'user_id'     => Auth::user()->id,
-		    'category_id'     => Auth::user()->id
+		    'category_id'     => request('category_id'),
 	    ]);
 
 	    return response()->json([
@@ -100,6 +101,7 @@ class PostController extends Controller
 	    ]);
 
 	    $post->title = request('title');
+	    $post->category_id = request('category_id');
 	    $post->description = request('description');
 	    $post->save();
 
