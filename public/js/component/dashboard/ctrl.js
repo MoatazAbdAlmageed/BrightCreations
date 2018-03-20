@@ -9,7 +9,7 @@ angular.module('app').component('dashboard', {
         ctrl.get_counters = function () {
             $http.get('/counters')
                 .then(function success(e) {
-                    debugger
+
                     ctrl.counters = e.data;
                 });
         };

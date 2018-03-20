@@ -11,7 +11,7 @@ angular.module('app').component('comment', {
             $http.get('/comment')
                 .then(function success(e) {
                     ctrl.comments = e.data.comments;
-debugger
+
                 });
         };
         ctrl.loadItems();

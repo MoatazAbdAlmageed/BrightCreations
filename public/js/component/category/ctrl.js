@@ -11,7 +11,7 @@ angular.module('app').component('category', {
             $http.get('/category')
                 .then(function success(e) {
                     ctrl.categories = e.data.categories;
-debugger
+
                 });
         };
         ctrl.loadItems();
@@ -32,12 +32,12 @@ debugger
         };
         // Add new Category
         ctrl.addCategory = function () {
-            $http.category('/category', {
+            $http.post('/category', {
                 title: ctrl.category.title,
                 description: ctrl.category.description
             }).then(function success(e) {
                 ctrl.resetForm();
-                ctrl.category.push(e.data.category);
+                ctrl.categories.push(e.data.category);
                 $("#add_new_category").modal('hide');
 
             }, function error(error) {
@@ -66,8 +66,9 @@ debugger
 
         // initialize update action
         ctrl.initEdit = function (index) {
+
             ctrl.errors = [];
-            ctrl.edit_category = ctrl.category[index];
+            ctrl.edit_category = ctrl.categories[index];
             $("#edit_category").modal('show');
         };
 

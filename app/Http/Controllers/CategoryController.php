@@ -44,7 +44,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+	    $this->validate($request, [
+		    'title'        => 'required|max:255',
+
+	    ]);
+
+	    $category = Category::create([
+		    'title'        => request('title'),
+	    ]);
+
+	    return response()->json([
+		    'category'    => $category,
+		    'message' => 'Success'
+	    ], 200);
     }
 
     /**
@@ -76,9 +88,20 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+	public function update(Request $request, Category $category)
     {
-        //
+	    $this->validate($request, [
+		    'title'        => 'required|max:255',
+
+	    ]);
+
+	    $category->title = request('title');
+
+	    $category->save();
+
+	    return response()->json([
+		    'message' => 'Category updated successfully!'
+	    ], 200);
     }
 
     /**
