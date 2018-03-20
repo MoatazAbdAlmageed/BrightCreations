@@ -36,7 +36,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
-            <a class="navbar-brand" ui-sref="home">
+            <a class="navbar-brand" ui-sref="admin">
 
                 <img src="{{asset('img/BC-logo.jpg')}}" alt="">
             </a>
@@ -48,12 +48,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto" id="nav_pages">
-                    <li><a ui-sref="post">Posts</a></li>
-                    <li><a ui-sref="comment">Comments</a></li>
-                    <li><a ui-sref="category">Categories</a></li>
+                    <li><a ui-sref="postManager">Posts</a></li>
+                    <li><a ui-sref="commentManager">Comments</a></li>
+                    <li><a ui-sref="categoryManager">Categories</a></li>
 
                 </ul>
-
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->

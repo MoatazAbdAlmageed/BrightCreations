@@ -53,10 +53,10 @@ angular.module('app').component('posts', {
         ctrl.addPost = function () {
             $http.post('/post', {
                 title: ctrl.post.title,
-
                 description: ctrl.post.description,
                 category_id: ctrl.post.category_id,
             }).then(function success(e) {
+                ctrl.loadPosts();
                 ctrl.resetForm();
                 ctrl.posts.push(e.data.post);
                 $("#add_new_post").modal('hide');
@@ -100,6 +100,7 @@ angular.module('app').component('posts', {
                 description: ctrl.edit_post.description,
                 category_id: ctrl.edit_post.category_id
             }).then(function success(e) {
+                ctrl.loadPosts();
                 ctrl.errors = [];
                 $("#edit_post").modal('hide');
             }, function error(error) {

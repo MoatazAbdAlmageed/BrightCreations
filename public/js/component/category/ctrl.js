@@ -36,6 +36,7 @@ angular.module('app').component('category', {
                 title: ctrl.category.title,
                 description: ctrl.category.description
             }).then(function success(e) {
+                ctrl.loadItems();
                 ctrl.resetForm();
                 ctrl.categories.push(e.data.category);
                 $("#add_new_category").modal('hide');
@@ -78,6 +79,7 @@ angular.module('app').component('category', {
                 title: ctrl.edit_category.title,
                 description: ctrl.edit_category.description
             }).then(function success(e) {
+                ctrl.loadItems();
                 ctrl.errors = [];
                 $("#edit_category").modal('hide');
             }, function error(error) {

@@ -11,7 +11,7 @@ angular.module('app').component('comment', {
             $http.get('/comment')
                 .then(function success(e) {
                     ctrl.comments = e.data.comments;
-
+debugger
                 });
         };
         ctrl.loadItems();
@@ -40,7 +40,7 @@ angular.module('app').component('comment', {
                 ctrl.resetForm();
                 ctrl.comments.push(e.data.comment);
                 $("#add_new_comment").modal('hide');
-
+                ctrl.loadItems();
             }, function error(error) {
                 ctrl.recordErrors(error);
             });
@@ -79,6 +79,7 @@ angular.module('app').component('comment', {
                 post_id: 2,
                 user_id: 1,
             }).then(function success(e) {
+                ctrl.loadItems();
                 ctrl.errors = [];
                 $("#edit_comment").modal('hide');
             }, function error(error) {

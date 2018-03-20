@@ -13684,28 +13684,26 @@ module.exports = __webpack_require__(36);
 __webpack_require__(12);
 
 var app = angular.module('app', ['ui.router'], ['$httpProvider', function ($httpProvider) {
-    $httpProvider.defaults.headers.post['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content');
+    // $httpProvider.defaults.headers.post['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content');
 }]);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('home');
 
-    $stateProvider
-    // HOME STATES AND NESTED VIEWS ========================================
-
-    .state('home', {
-        url: '/home',
+    $stateProvider.state('admin', {
+        url: '/admin',
         template: '<dashboard></dashboard>'
-    }).state('post', {
-        url: '/post',
+    }).state('postManager', {
+        url: '/admin/post',
         template: '<posts></posts>'
-    }).state('category', {
-        url: '/category',
+    }).state('categoryManager', {
+        url: '/admin/category',
         template: '<category></category>'
-    }).state('comment', {
-        url: '/comment',
+    }).state('commentManager', {
+        url: '/admin/comment',
         template: '<comment></comment>'
     });
+
+    $urlRouterProvider.otherwise('admin.post');
 });
 
 /***/ }),
