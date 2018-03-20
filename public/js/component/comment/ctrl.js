@@ -47,10 +47,10 @@ debugger
         };
 
         ctrl.recordErrors = function (error) {
-
+debugger
             ctrl.errors = [];
-            if (error.data.errors.title) {
-                ctrl.errors.push(error.data.errors.title[0]);
+            if (error.data.errors.body) {
+                ctrl.errors.push(error.data.errors.body[0]);
             }
 
             if (error.data.errors.description) {
