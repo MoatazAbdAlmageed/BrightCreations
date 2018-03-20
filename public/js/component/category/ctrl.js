@@ -68,7 +68,7 @@ angular.module('app').component('category', {
         ctrl.initEdit = function (index) {
 
             ctrl.errors = [];
-            ctrl.edit_category = ctrl.categories[index];
+            ctrl.edit_category = angular.copy(ctrl.categories[index]);
             $("#edit_category").modal('show');
         };
 

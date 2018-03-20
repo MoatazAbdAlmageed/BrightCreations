@@ -13,7 +13,8 @@
                         <table class="table table-bordered text-center table-striped" ng-if="$ctrl.posts.length">
                             <tr>
                                 <th style="width: 5%">No.</th>
-                                <th>Name</th>
+                                <th>Title</th>
+                                <th>Comments</th>
                                 <th style="width: 25%">Action</th>
                             </tr>
                             <tr ng-repeat="(index, post) in $ctrl.posts">
@@ -21,6 +22,7 @@
                                     {{ index + 1 }}
                                 </td>
                                 <td>{{ post.title }}</td>
+                                <td>{{ post.comments_count }}</td>
 
                                 <td>
                                     <button class="btn btn-success btn-xs" ng-click="$ctrl.initEdit(index)">Edit</button>

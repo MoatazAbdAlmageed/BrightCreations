@@ -19,10 +19,10 @@ angular.module('app').component('comment', {
         ctrl.errors = [];
 
         ctrl.comment = {
-            name: '',
-            description: ''
+            body: '',
+
         };
-        ctrl.initPost = function () {
+        ctrl.initComment = function () {
 
             ctrl.resetForm();
             $("#add_new_comment").modal('show');
@@ -30,14 +30,15 @@ angular.module('app').component('comment', {
         ctrl.$onInit = function() {
 
         };
-        // Add new Post
-        ctrl.addPost = function () {
-            $http.comment('/comment', {
-                title: ctrl.comment.title,
-                description: ctrl.comment.description
+        // Add new Comment
+        ctrl.addComment = function () {
+            $http.post('/comment', {
+                body: ctrl.comment.body,
+                post_id: 2,
+                user_id: 1,
             }).then(function success(e) {
                 ctrl.resetForm();
-                ctrl.comment.push(e.data.comment);
+                ctrl.comments.push(e.data.comment);
                 $("#add_new_comment").modal('hide');
 
             }, function error(error) {
@@ -58,8 +59,8 @@ angular.module('app').component('comment', {
         };
 
         ctrl.resetForm = function () {
-            ctrl.comment.name = '';
-            ctrl.comment.description = '';
+            ctrl.comment.body = '';
+
             ctrl.errors = [];
         };
 
@@ -67,15 +68,16 @@ angular.module('app').component('comment', {
         // initialize update action
         ctrl.initEdit = function (index) {
             ctrl.errors = [];
-            ctrl.edit_comment = ctrl.comment[index];
+            ctrl.edit_comment = angular.copy( ctrl.comments[index]);
             $("#edit_comment").modal('show');
         };
 
         // update the given comment
-        ctrl.updatePost = function () {
+        ctrl.updateComment = function () {
             $http.patch('/comment/' + ctrl.edit_comment.id, {
-                title: ctrl.edit_comment.title,
-                description: ctrl.edit_comment.description
+                body: ctrl.edit_comment.body,
+                post_id: 2,
+                user_id: 1,
             }).then(function success(e) {
                 ctrl.errors = [];
                 $("#edit_comment").modal('hide');
@@ -85,7 +87,7 @@ angular.module('app').component('comment', {
         };
 
 
-        ctrl.deletePost = function (index) {
+        ctrl.deleteComment = function (index) {
 
             var conf = confirm("Do you really want to delete this comment?");
 

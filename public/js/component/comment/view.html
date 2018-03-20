@@ -4,7 +4,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h1 class="bright_color">Comments</h1>
-                    <p>     <button class="btn btn-primary btn-xs " ng-click="$ctrl.initPost()">Create</button></p>
+                    <p>     <button class="btn btn-primary btn-xs " ng-click="$ctrl.initComment()">Create</button></p>
                 </div>
                 <div class="panel-body">
 
@@ -24,7 +24,7 @@
 
                                 <td>
                                     <button class="btn btn-success btn-xs" ng-click="$ctrl.initEdit(index)">Edit</button>
-                                    <button class="btn btn-danger btn-xs" ng-click="$ctrl.deletePost(index)" >Delete</button>
+                                    <button class="btn btn-danger btn-xs" ng-click="$ctrl.deleteComment(index)" >Delete</button>
                                 </td>
                             </tr>
                         </table>
@@ -46,7 +46,7 @@
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h4 class="modal-title">Add Post</h4>
+                    <h4 class="modal-title">Add Comment</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
@@ -59,18 +59,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="name">Title</label>
-                        <input type="text" name="title" class="form-control" ng-model="$ctrl.comment.title">
+                        <label for="name">Body</label>
+                        <input type="text" name="body" class="form-control" ng-model="$ctrl.comment.body">
                     </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea name="description" rows="5" class="form-control"
-                                  ng-model="$ctrl.comment.description"></textarea>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="$ctrl.addPost()">Submit</button>
+                    <button type="button" class="btn btn-primary" ng-click="$ctrl.addComment()">Submit</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -81,7 +77,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Update Post</h4>
+                    <h4 class="modal-title">Update Comment</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
 
@@ -95,18 +91,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="name">Title</label>
-                        <input type="text" name="title" class="form-control" ng-model="$ctrl.edit_comment.title">
+                        <label for="body">Body</label>
+                        <input type="text" name="body" class="form-control" ng-model="$ctrl.edit_comment.body">
                     </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea name="description" rows="5" class="form-control"
-                                  ng-model="$ctrl.edit_comment.description"></textarea>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="$ctrl.updatePost()">Submit</button>
+                    <button type="button" class="btn btn-primary" ng-click="$ctrl.updateComment()">Submit</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

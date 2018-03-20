@@ -11,6 +11,7 @@ angular.module('app').component('posts', {
             $http.get('/post')
                 .then(function success(e) {
                     ctrl.posts = e.data.posts;
+                    ctrl.comments = e.data.comments;
 
                 });
         };
@@ -18,7 +19,7 @@ angular.module('app').component('posts', {
         ctrl.loadCategories = function () {
             $http.get('/category')
                 .then(function success(e) {
-                    debugger
+
                     ctrl.categories = e.data.categories;
 
                 });
@@ -81,7 +82,7 @@ angular.module('app').component('posts', {
         // initialize update action
         ctrl.initEdit = function (index) {
             ctrl.errors = [];
-            ctrl.edit_post = ctrl.posts[index];
+            ctrl.edit_post = angular.copy(ctrl.posts[index]);
             $("#edit_post").modal('show');
         };
 
