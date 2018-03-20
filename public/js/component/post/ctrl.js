@@ -11,7 +11,8 @@ angular.module('app').component('posts', {
             $http.get('/post')
                 .then(function success(e) {
                     ctrl.posts = e.data.posts;
-                    ctrl.comments = e.data.comments;
+
+                    debugger
 
                 });
         };

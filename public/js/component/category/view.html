@@ -14,6 +14,7 @@
                             <tr>
                                 <th style="width: 5%">No.</th>
                                 <th>Name</th>
+                                <th>Posts</th>
                                 <th style="width: 25%">Action</th>
                             </tr>
                             <tr ng-repeat="(index, category) in $ctrl.categories">
@@ -21,6 +22,7 @@
                                     {{ index + 1 }}
                                 </td>
                                 <td>{{ category.title }}</td>
+                                <td>{{ category.posts_count }}</td>
 
                                 <td>
                                     <button class="btn btn-success btn-xs" ng-click="$ctrl.initEdit(index)">Edit</button>

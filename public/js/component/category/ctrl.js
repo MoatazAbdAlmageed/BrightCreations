@@ -11,6 +11,7 @@ angular.module('app').component('category', {
             $http.get('/category')
                 .then(function success(e) {
                     ctrl.categories = e.data.categories;
+                    debugger
 
                 });
         };
