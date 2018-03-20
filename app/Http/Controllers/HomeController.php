@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Comment;
+use App\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,4 +28,19 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+	/**
+	 * @return \Illuminate\Http\JsonResponse
+	 */
+	public function get_counters()
+	{
+		$posts = Post::all();
+		$comments = Comment::all();
+		$categories = Category::all();
+		return response()->json([
+			'posts' => count($posts),
+			'comments' => count($comments),
+			'categories' => count($categories),
+		], 200);
+	}
 }

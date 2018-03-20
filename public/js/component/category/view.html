@@ -3,19 +3,19 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <p>     <button class="btn btn-primary btn-xs pull-right" ng-click="$ctrl.initPost()">Create</button></p>
+                    <p>     <button class="btn btn-primary btn-xs " ng-click="$ctrl.initPost()">Create</button></p>
                 </div>
                 <div class="panel-body">
 
                     <div class="table-responsive">
 
-                        <table class="table table-bordered text-center table-striped" ng-if="$ctrl.posts.length">
+                        <table class="table table-bordered text-center table-striped" ng-if="$ctrl.categories.length">
                             <tr>
                                 <th style="width: 5%">No.</th>
                                 <th>Name</th>
                                 <th style="width: 25%">Action</th>
                             </tr>
-                            <tr ng-repeat="(index, post) in $ctrl.posts">
+                            <tr ng-repeat="(index, post) in $ctrl.categories">
                                 <td>
                                     {{ index + 1 }}
                                 </td>
@@ -28,7 +28,7 @@
                             </tr>
                         </table>
                     </div>
-                    <div  ng-if="$ctrl.posts.length == 0 " class="alert alert-primary" role="alert">
+                    <div  ng-if="$ctrl.categories.length == 0 " class="alert alert-primary" role="alert">
                         No Posts Found
                     </div>
 

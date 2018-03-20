@@ -12,7 +12,7 @@
                         Posts
                     </div>
                     <div class="circle-tile-number text-faded">
-                        {{ $ctrl.posts.length}}
+                        {{ $ctrl.counters.posts}}
                         <span id="sparklineA"></span>
                     </div>
                     <a ui-sref="post" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
@@ -32,7 +32,7 @@
                         Categories
                     </div>
                     <div class="circle-tile-number text-faded">
-                        {{ $ctrl.categories.length}}
+                        {{ $ctrl.counters.categories}}
                         <span id="sparklineA"></span>
                     </div>
                     <a ui-sref="category" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
@@ -53,7 +53,7 @@
                         Comments
                     </div>
                     <div class="circle-tile-number text-faded">
-                        {{ $ctrl.comments.length}}
+                        {{ $ctrl.counters.comments}}
                         <span id="sparklineA"></span>
                     </div>
                     <a ui-sref="comment" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>

@@ -10,8 +10,8 @@ angular.module('app').component('category', {
         ctrl.loadItems = function () {
             $http.get('/category')
                 .then(function success(e) {
-                    ctrl.category = e.data.category;
-
+                    ctrl.categories = e.data.categories;
+debugger
                 });
         };
         ctrl.loadItems();

@@ -10,8 +10,8 @@ angular.module('app').component('comment', {
         ctrl.loadItems = function () {
             $http.get('/comment')
                 .then(function success(e) {
-                    ctrl.comment = e.data.comment;
-
+                    ctrl.comments = e.data.comments;
+debugger
                 });
         };
         ctrl.loadItems();

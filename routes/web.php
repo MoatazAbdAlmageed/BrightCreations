@@ -15,5 +15,10 @@
 //    return view('welcome');
 //});
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/counters', 'HomeController@get_counters');
 Route::resource('/post', 'PostController');
+Route::resource('/category', 'CategoryController');
+Route::resource('/comment', 'CommentController');
+
+
 Auth::routes();
