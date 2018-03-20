@@ -90,9 +90,9 @@ debugger
             var conf = confirm("Do you really want to delete this comment?");
 
             if (conf === true) {
-                $http.delete('/comment/' + ctrl.comment[index].id)
+                $http.delete('/comment/' + ctrl.comments[index].id)
                     .then(function success(e) {
-                        ctrl.comment.splice(index, 1);
+                        ctrl.comments.splice(index, 1);
                     });
             }
         };

@@ -22,7 +22,7 @@ debugger
             name: '',
             description: ''
         };
-        ctrl.initPost = function () {
+        ctrl.initCategory = function () {
 
             ctrl.resetForm();
             $("#add_new_category").modal('show');
@@ -30,8 +30,8 @@ debugger
         ctrl.$onInit = function() {
 
         };
-        // Add new Post
-        ctrl.addPost = function () {
+        // Add new Category
+        ctrl.addCategory = function () {
             $http.category('/category', {
                 title: ctrl.category.title,
                 description: ctrl.category.description
@@ -72,7 +72,7 @@ debugger
         };
 
         // update the given category
-        ctrl.updatePost = function () {
+        ctrl.updateCategory = function () {
             $http.patch('/category/' + ctrl.edit_category.id, {
                 title: ctrl.edit_category.title,
                 description: ctrl.edit_category.description
@@ -85,14 +85,14 @@ debugger
         };
 
 
-        ctrl.deletePost = function (index) {
+        ctrl.deleteCategory = function (index) {
 
             var conf = confirm("Do you really want to delete this category?");
 
             if (conf === true) {
-                $http.delete('/category/' + ctrl.category[index].id)
+                $http.delete('/category/' + ctrl.categories[index].id)
                     .then(function success(e) {
-                        ctrl.category.splice(index, 1);
+                        ctrl.categories.splice(index, 1);
                     });
             }
         };

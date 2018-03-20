@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <p>     <button class="btn btn-primary btn-xs " ng-click="$ctrl.initPost()">Create</button></p>
+                    <p>     <button class="btn btn-primary btn-xs " ng-click="$ctrl.initCategory()">Create</button></p>
                 </div>
                 <div class="panel-body">
 
@@ -15,21 +15,21 @@
                                 <th>Name</th>
                                 <th style="width: 25%">Action</th>
                             </tr>
-                            <tr ng-repeat="(index, post) in $ctrl.categories">
+                            <tr ng-repeat="(index, category) in $ctrl.categories">
                                 <td>
                                     {{ index + 1 }}
                                 </td>
-                                <td>{{ post.title }}</td>
+                                <td>{{ category.title }}</td>
 
                                 <td>
                                     <button class="btn btn-success btn-xs" ng-click="$ctrl.initEdit(index)">Edit</button>
-                                    <button class="btn btn-danger btn-xs" ng-click="$ctrl.deletePost(index)" >Delete</button>
+                                    <button class="btn btn-danger btn-xs" ng-click="$ctrl.deleteCategory(index)" >Delete</button>
                                 </td>
                             </tr>
                         </table>
                     </div>
                     <div  ng-if="$ctrl.categories.length == 0 " class="alert alert-primary" role="alert">
-                        No Posts Found
+                        No Categorys Found
                     </div>
 
                 </div>
@@ -40,12 +40,12 @@
 
 
 
-    <div class="modal fade" tabindex="-1" role="dialog" id="add_new_post">
+    <div class="modal fade" tabindex="-1" role="dialog" id="add_new_category">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h4 class="modal-title">Add Post</h4>
+                    <h4 class="modal-title">Add Category</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
@@ -59,28 +59,28 @@
 
                     <div class="form-group">
                         <label for="name">Title</label>
-                        <input type="text" name="title" class="form-control" ng-model="$ctrl.post.title">
+                        <input type="text" name="title" class="form-control" ng-model="$ctrl.category.title">
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
                         <textarea name="description" rows="5" class="form-control"
-                                  ng-model="$ctrl.post.description"></textarea>
+                                  ng-model="$ctrl.category.description"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="$ctrl.addPost()">Submit</button>
+                    <button type="button" class="btn btn-primary" ng-click="$ctrl.addCategory()">Submit</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
 
-    <div class="modal fade" tabindex="-1" role="dialog" id="edit_post">
+    <div class="modal fade" tabindex="-1" role="dialog" id="edit_category">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Update Post</h4>
+                    <h4 class="modal-title">Update Category</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
 
@@ -95,17 +95,17 @@
 
                     <div class="form-group">
                         <label for="name">Title</label>
-                        <input type="text" name="title" class="form-control" ng-model="$ctrl.edit_post.title">
+                        <input type="text" name="title" class="form-control" ng-model="$ctrl.edit_category.title">
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
                         <textarea name="description" rows="5" class="form-control"
-                                  ng-model="$ctrl.edit_post.description"></textarea>
+                                  ng-model="$ctrl.edit_category.description"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="$ctrl.updatePost()">Submit</button>
+                    <button type="button" class="btn btn-primary" ng-click="$ctrl.updateCategory()">Submit</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
