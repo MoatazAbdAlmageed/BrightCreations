@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p>     <button class="btn btn-primary btn-xs pull-right" ng-click="$ctrl.initPost()">Create</button></p>
+                </div>
+                <div class="panel-body">
+
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered text-center table-striped" ng-if="$ctrl.posts.length">
+                            <tr>
+                                <th style="width: 5%">No.</th>
+                                <th>Name</th>
+                                <th style="width: 25%">Action</th>
+                            </tr>
+                            <tr ng-repeat="(index, post) in $ctrl.posts">
+                                <td>
+                                    {{ index + 1 }}
+                                </td>
+                                <td>{{ post.title }}</td>
+
+                                <td>
+                                    <button class="btn btn-success btn-xs" ng-click="$ctrl.initEdit(index)">Edit</button>
+                                    <button class="btn btn-danger btn-xs" ng-click="$ctrl.deletePost(index)" >Delete</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div  ng-if="$ctrl.posts.length == 0 " class="alert alert-primary" role="alert">
+                        No Posts Found
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="add_new_post">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title">Add Post</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="alert alert-danger" ng-if="$ctrl.errors.length > 0">
+                        <ul>
+                            <li ng-repeat="error in $ctrl.errors">@{{ error }}</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Title</label>
+                        <input type="text" name="title" class="form-control" ng-model="$ctrl.post.title">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea name="description" rows="5" class="form-control"
+                                  ng-model="$ctrl.post.description"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="$ctrl.addPost()">Submit</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="edit_post">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Update Post</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+
+                </div>
+                <div class="modal-body">
+
+                    <div class="alert alert-danger" ng-if="$ctrl.errors.length > 0">
+                        <ul>
+                            <li ng-repeat="error in $ctrl.errors">@{{ error }}</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Title</label>
+                        <input type="text" name="title" class="form-control" ng-model="$ctrl.edit_post.title">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea name="description" rows="5" class="form-control"
+                                  ng-model="$ctrl.edit_post.description"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" ng-click="$ctrl.updatePost()">Submit</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+</div>

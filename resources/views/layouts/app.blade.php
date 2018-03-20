@@ -19,19 +19,24 @@
 
 
     <script src="{{ asset('js/app.js') }}" ></script>
-    <script src="{{ asset('js/component/posts/ctrl.js') }}" ></script>
+    <script src="{{ asset('js/component/dashboard/ctrl.js') }}" ></script>
+    <script src="{{ asset('js/component/post/ctrl.js') }}" ></script>
+    <script src="{{ asset('js/component/category/ctrl.js') }}" ></script>
+    <script src="{{ asset('js/component/comment/ctrl.js') }}" ></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" ui-sref="home">
                 {{ config('app.name', 'Laravel') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -41,8 +46,10 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-                    <li><a ui-sref="posts">Posts</a></li>
+                <ul class="navbar-nav mr-auto" id="nav_pages">
+                    <li><a ui-sref="post">Posts</a></li>
+                    <li><a ui-sref="category">Categories</a></li>
+                    <li><a ui-sref="comment">Comments</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
