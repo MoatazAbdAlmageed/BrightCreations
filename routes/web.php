@@ -21,4 +21,8 @@ Route::resource('/category', 'CategoryController');
 Route::resource('/comment', 'CommentController');
 
 
+
+
+Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
+Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
 Auth::routes();

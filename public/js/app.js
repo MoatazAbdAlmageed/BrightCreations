@@ -13682,6 +13682,7 @@ module.exports = __webpack_require__(36);
  */
 
 __webpack_require__(12);
+
 var app = angular.module('app', ['ui.router'], ['$httpProvider', function ($httpProvider) {
     // $httpProvider.defaults.headers.post['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content');
 }]);
