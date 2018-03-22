@@ -64,12 +64,13 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img src="{{asset('img/avatar/'.Auth::user()->avatar)}}" class="img-circle special-img">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('users.edit',['user'=>1]) }}"
+                                    <a class="dropdown-item" href="{{ route('users.edit',['user'=>Auth::user()->id],'edit') }}"
                                        onclick="event.preventDefault();">
                                   Profile
                                     </a>

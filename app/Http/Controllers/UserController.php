@@ -14,8 +14,7 @@ class UserController extends Controller {
 	}
 
 	public function edit( User $user ) {
-		$user = Auth::user();
-
+		$user    = Auth::user();
 		$hobbies = Hobby::All();
 
 		return view( 'auth.edit', compact( 'user', 'hobbies' ) );
@@ -35,7 +34,20 @@ class UserController extends Controller {
 		$user->password = bcrypt( request( 'password' ) );
 
 
-		if ($user->save()){
+		$avatar = request()->file( 'avatar' );
+
+
+		if ( $avatar ) {
+
+			$upload       = 'img/avatar';
+			$filename     = $avatar->getClientOriginalName();
+			$success      = $avatar->move( $upload, $filename );
+			$user->avatar = $filename;
+
+		}
+
+
+		if ( $user->save() ) {
 
 			/* handle user hobbies */
 
@@ -46,15 +58,14 @@ class UserController extends Controller {
 
 			/* get  user hobbies  from request */
 
+			if ( request( 'hobby' ) ) {
+				foreach ( request( 'hobby' ) as $hobby ) {
+					$values = array( 'hobby_id' => $hobby, 'user_id' => Auth::user()->id );
+					DB::table( 'user_hobbies' )->insert( $values );
 
-			foreach ( request( 'hobby' ) as $hobby ) {
-				$values = array( 'hobby_id' => $hobby, 'user_id' => Auth::user()->id );
-				DB::table( 'user_hobbies' )->insert( $values );
-
+				}
 			}
 		}
-
-
 
 
 		/* add  user hobbies  to  user_hobbies table */

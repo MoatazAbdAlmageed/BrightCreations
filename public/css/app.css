@@ -10526,3 +10526,7 @@ body {
   padding: 15px;
 }
 
+#navbarDropdown img {
+  width: 32px !important;
+}
+

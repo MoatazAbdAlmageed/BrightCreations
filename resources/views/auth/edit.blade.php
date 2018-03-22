@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Profile') }}</div>
 
                 <div class="card-body">
-                    <form method="post" action="{{ route('users.update',['user'=>$user->id]) }}">
+                    <form method="post" action="{{ route('users.update',['user'=>$user->id]) }}" enctype="multipart/form-data" >
                         {{--@csrf--}}
                         {{ method_field('PATCH') }}
                         {{csrf_field()}}
@@ -73,17 +73,6 @@
 
                             @foreach($hobbies as $hobby)
                                     <label class="form-check-label">
-                                        {{--<input--}}
-                                                {{--type="checkbox" class="form-check-input"--}}
-                                               {{--value="{{$hobby->id}}"--}}
-                                               {{--@foreach ($user->hobbies as $user_hobby)--}}
-                                                   {{--@if ($hobby->id == $user_hobby->id)--}}
-                                                       {{--checked--}}
-                                                   {{--@endif--}}
-                                               {{--@endforeach--}}
-
-                                        {{-->--}}
-                                        {{--{{$hobby->name}}--}}
 
 
 	                                    <?php
@@ -108,6 +97,18 @@
                                 @endif
                             </div>
                         </div>
+
+
+
+
+
+                        <div class="form-group row">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
+                            <div class="col-md-6">
+                                {!! Form::file('avatar', array('class' => 'image')) !!}
+                            </div>
+                        </div>
+
 
 
                         <div class="form-group row">
