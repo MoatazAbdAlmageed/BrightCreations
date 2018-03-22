@@ -66,6 +66,51 @@
 
 
                         <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Hobbies') }}</label>
+                            <div class="col-md-6">
+
+                                {{--{{Form::checkbox('hobby[]','art')}}Art--}}
+
+                            @foreach($hobbies as $hobby)
+                                    <label class="form-check-label">
+                                        {{--<input--}}
+                                                {{--type="checkbox" class="form-check-input"--}}
+                                               {{--value="{{$hobby->id}}"--}}
+                                               {{--@foreach ($user->hobbies as $user_hobby)--}}
+                                                   {{--@if ($hobby->id == $user_hobby->id)--}}
+                                                       {{--checked--}}
+                                                   {{--@endif--}}
+                                               {{--@endforeach--}}
+
+                                        {{-->--}}
+                                        {{--{{$hobby->name}}--}}
+
+
+	                                    <?php
+                                            $checked = false;
+	                                    foreach ($user->hobbies as $user_hobby){
+		                                    if ($hobby->id == $user_hobby->id){
+			                                    $checked = true;
+		                                    }}
+	                                    ?>
+
+                                        {{Form::checkbox('hobby[]',$hobby->id, $checked)}}{{$hobby->name}}
+
+                                    </label>
+
+
+
+                                  @endforeach
+                                @if ($errors->has('hobby'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('hobby') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

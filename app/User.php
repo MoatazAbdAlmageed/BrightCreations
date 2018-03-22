@@ -11,6 +11,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+	protected $with = ['hobbies'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -35,9 +37,9 @@ class User extends Authenticatable
 	}
 
 
-	public function roles()
+	public function hobbies()
 	{
-		return $this->belongsToMany(Hobby::class);
+		return $this->belongsToMany(Hobby::class,'user_hobbies');
 	}
 
 
