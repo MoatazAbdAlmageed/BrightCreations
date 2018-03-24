@@ -13,16 +13,17 @@
     <!-- Scripts -->
     {{--v1.5.9--}}
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>--}}
-    <script src="{{ asset('js/angular.js') }}" ></script>
-    <script src="{{ asset('js/angular-animate.min.js') }}" ></script>
-    <script src="{{ asset('js/angular-ui-router.js') }}" ></script>
+    {{--<script src="{{ asset('js/angular.js') }}" ></script>--}}
+    {{--<script src="{{ asset('js/angular-animate.min.js') }}" ></script>--}}
+    {{--<script src="{{ asset('js/angular-ui-router.js') }}" ></script>--}}
 
 
-    <script src="{{ asset('js/app.js') }}" ></script>
-    <script src="{{ asset('js/component/dashboard/ctrl.js') }}" ></script>
-    <script src="{{ asset('js/component/post/ctrl.js') }}" ></script>
-    <script src="{{ asset('js/component/category/ctrl.js') }}" ></script>
-    <script src="{{ asset('js/component/comment/ctrl.js') }}" ></script>
+
+    <script src="{{ asset('js/admin.js') }}" ></script>
+    {{--<script src="{{ asset('js/component/dashboard/ctrl.js') }}" ></script>--}}
+    {{--<script src="{{ asset('js/component/post/ctrl.js') }}" ></script>--}}
+    {{--<script src="{{ asset('js/component/category/ctrl.js') }}" ></script>--}}
+    {{--<script src="{{ asset('js/component/comment/ctrl.js') }}" ></script>--}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -36,7 +37,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
-            <a class="navbar-brand" ui-sref="admin">
+            <a class="navbar-brand" href="/">
 
                 <img src="{{asset('img/BC-logo.jpg')}}" alt="">
             </a>
@@ -49,12 +50,12 @@
 
 
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto" id="nav_pages">
-                    <li><a ui-sref="postManager">Posts</a></li>
-                    <li><a ui-sref="commentManager">Comments</a></li>
-                    <li><a ui-sref="categoryManager">Categories</a></li>
+                {{--<ul class="navbar-nav mr-auto" id="nav_pages">--}}
+                    {{--<li><a ui-sref="postManager">Posts</a></li>--}}
+                    {{--<li><a ui-sref="commentManager">Comments</a></li>--}}
+                    {{--<li><a ui-sref="categoryManager">Categories</a></li>--}}
 
-                </ul>
+                {{--</ul>--}}
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->

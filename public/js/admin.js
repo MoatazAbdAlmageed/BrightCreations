@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 34);
+/******/ 	return __webpack_require__(__webpack_require__.s = 37);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -35836,15 +35836,17 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 34 */
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(35);
-module.exports = __webpack_require__(36);
+module.exports = __webpack_require__(38);
 
 
 /***/ }),
-/* 35 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -35854,35 +35856,6 @@ module.exports = __webpack_require__(36);
  */
 
 __webpack_require__(10);
-
-var app = angular.module('app', ['ui.router'], ['$httpProvider', function ($httpProvider) {
-    // $httpProvider.defaults.headers.post['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content');
-}]);
-
-app.config(function ($stateProvider, $urlRouterProvider) {
-
-    $stateProvider.state('admin', {
-        url: '/admin',
-        template: '<dashboard></dashboard>'
-    }).state('postManager', {
-        url: '/admin/post',
-        template: '<posts></posts>'
-    }).state('categoryManager', {
-        url: '/admin/category',
-        template: '<category></category>'
-    }).state('commentManager', {
-        url: '/admin/comment',
-        template: '<comment></comment>'
-    });
-
-    $urlRouterProvider.otherwise('admin');
-});
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
