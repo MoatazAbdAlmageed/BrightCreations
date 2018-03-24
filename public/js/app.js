@@ -35860,7 +35860,6 @@ var app = angular.module('app', ['ui.router'], ['$httpProvider', function ($http
 }]);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-
     $stateProvider.state('admin', {
         url: '/admin',
         template: '<dashboard></dashboard>'
@@ -35874,7 +35873,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: '/admin/comment',
         template: '<comment></comment>'
     });
-
     $urlRouterProvider.otherwise('admin');
 });
 

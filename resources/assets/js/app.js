@@ -12,8 +12,9 @@ var app = angular.module('app', ['ui.router']
         // $httpProvider.defaults.headers.post['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content');
     }]);
 
-app.config(function ($stateProvider, $urlRouterProvider) {
 
+
+app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('admin', {
             url: '/admin',
@@ -31,7 +32,5 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/admin/comment',
             template: '<comment></comment>'
         })
-
     $urlRouterProvider.otherwise('admin');
-
 });

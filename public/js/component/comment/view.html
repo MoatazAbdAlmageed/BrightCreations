@@ -62,7 +62,12 @@
 
                     <div class="form-group">
                         <label for="name">Body</label>
-                        <input type="text" name="body" class="form-control" ng-model="$ctrl.comment.body">
+                        <textarea name="body" class="form-control" ng-model="$ctrl.comment.body"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Post">Post</label>
+                        <select ng-options="post.id as post.title for post in $ctrl.posts" ng-model="$ctrl.comment.post_id"></select>
                     </div>
 
                 </div>
@@ -94,8 +99,14 @@
 
                     <div class="form-group">
                         <label for="body">Body</label>
-                        <input type="text" name="body" class="form-control" ng-model="$ctrl.edit_comment.body">
+                        <textarea name="body" class="form-control" ng-model="$ctrl.edit_comment.body"></textarea>
                     </div>
+
+                    <div class="form-group">
+                        <label for="Post">Post</label>
+                        <select ng-options="post.id as post.title for post in $ctrl.posts" ng-model="$ctrl.edit_comment.post_id"></select>
+                    </div>
+
 
                 </div>
                 <div class="modal-footer">

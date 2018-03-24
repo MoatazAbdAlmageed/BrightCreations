@@ -11,20 +11,15 @@
     <title>Bright Creations</title>
 
     <!-- Scripts -->
-    {{--v1.5.9--}}
-    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>--}}
-    <script src="{{ asset('js/angular.js') }}" ></script>
-    <script src="{{ asset('js/angular-animate.min.js') }}" ></script>
-    <script src="{{ asset('js/angular-ui-router.js') }}" ></script>
+{{--v1.5.9--}}
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>--}}
 
 
-    <script src="{{ asset('js/app.js') }}" ></script>
-    <script src="{{ asset('js/component/dashboard/ctrl.js') }}" ></script>
-    <script src="{{ asset('js/component/post/ctrl.js') }}" ></script>
-    <script src="{{ asset('js/component/category/ctrl.js') }}" ></script>
-    <script src="{{ asset('js/component/comment/ctrl.js') }}" ></script>
+@yield('header')
 
-    <!-- Fonts -->
+
+
+<!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
@@ -36,10 +31,10 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
-            <a class="navbar-brand" ui-sref="admin">
 
-                <img src="{{asset('img/BC-logo.jpg')}}" alt="">
-            </a>
+
+            @yield('brand')
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,9 +45,9 @@
 
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto" id="nav_pages">
-                    <li><a ui-sref="postManager">Posts</a></li>
-                    <li><a ui-sref="commentManager">Comments</a></li>
-                    <li><a ui-sref="categoryManager">Categories</a></li>
+
+                    @yield('navbar')
+
 
                 </ul>
                 <!-- Right Side Of Navbar -->
@@ -66,15 +61,17 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{asset('img/avatar/'.Auth::user()->avatar)}}" class="img-circle special-img">
+                                    <img src="{{asset('img/avatar/'.Auth::user()->avatar)}}"
+                                         class="img-circle special-img">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('users.edit',['user'=>Auth::user()->id],'edit') }}"
-                                     >
-                                  Profile
+                                    <a class="dropdown-item"
+                                       href="{{ route('users.edit',['user'=>Auth::user()->id],'edit') }}"
+                                    >
+                                        Profile
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -98,7 +95,6 @@
         @yield('content')
     </main>
 </div>
-
 
 
 </body>

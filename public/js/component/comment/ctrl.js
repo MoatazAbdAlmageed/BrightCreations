@@ -14,6 +14,22 @@ angular.module('app').component('comment', {
 debugger
                 });
         };
+
+
+        ctrl.loadPosts = function () {
+            $http.get('/post')
+                .then(function success(e) {
+
+                    ctrl.posts = e.data.posts;
+debugger
+
+
+                });
+        };
+
+        ctrl.loadPosts();
+
+
         ctrl.loadItems();
 
         ctrl.errors = [];
@@ -34,8 +50,8 @@ debugger
         ctrl.addComment = function () {
             $http.post('/comment', {
                 body: ctrl.comment.body,
-                post_id: 2,
-                user_id: 1,
+                post_id: ctrl.comment.post_id,
+                user_id: null,
             }).then(function success(e) {
                 ctrl.resetForm();
                 ctrl.comments.push(e.data.comment);
@@ -74,10 +90,13 @@ debugger
 
         // update the given comment
         ctrl.updateComment = function () {
+
+            var x = ctrl.edit_comment;
+            debugger
             $http.patch('/comment/' + ctrl.edit_comment.id, {
                 body: ctrl.edit_comment.body,
-                post_id: 2,
-                user_id: 1,
+                post_id: ctrl.edit_comment.post_id,
+                user_id: null
             }).then(function success(e) {
                 ctrl.loadItems();
                 ctrl.errors = [];
