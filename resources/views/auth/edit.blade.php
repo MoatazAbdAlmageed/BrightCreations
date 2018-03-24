@@ -65,6 +65,10 @@
                         </div>
 
 
+                        @if (count($hobbies) > 0)
+
+
+
                         <div class="form-group row">
                             <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Hobbies') }}</label>
                             <div class="col-md-6">
@@ -98,7 +102,7 @@
                             </div>
                         </div>
 
-
+                        @endif
 
 
 
